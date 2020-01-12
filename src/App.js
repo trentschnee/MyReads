@@ -1,7 +1,7 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-
+import BookShelf from './BookShelf';
 const bookShelfCategories = [
   {
     shelfName: "Currently Reading"
@@ -56,6 +56,11 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
+                {bookShelfCategories.map(category=> (
+                   <BookShelf
+                   category={category.shelfName}/>
+                ))}
+                
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
