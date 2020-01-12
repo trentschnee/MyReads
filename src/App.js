@@ -2,6 +2,18 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+const bookShelfCategories = [
+  {
+    shelfName: "Currently Reading"
+  },
+  {
+    shelfName: "Want To Read"
+  },
+  {
+    shelfName: "Read"
+  },
+];
+
 class BooksApp extends React.Component {
   state = {
     /**
