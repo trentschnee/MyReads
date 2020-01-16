@@ -6,13 +6,16 @@ import SearchPage from "./SearchPage";
 import * as BooksAPI from "./BooksAPI";
 const bookShelfCategories = [
   {
-    shelfName: "Currently Reading"
+    name: "Currently Reading",
+    key: "currentlyReading"
   },
   {
-    shelfName: "Want To Read"
+    name: "Want To Read",
+    key: "wantToRead"
   },
   {
-    shelfName: "Read"
+    name: "Read",
+    key: "read"
   }
 ];
 
@@ -21,14 +24,23 @@ class BooksApp extends React.Component {
     allBooks: [],
     showSearchPage: false
   };
-  componentDidMount() {
-    BooksAPI.getAll().then(allBooks => {
-      this.setState(() => ({ allBooks }));
+  getBooks = () => {
+    BooksAPI.getAll().then(books => {
+      this.setState({
+        allBooks: books
+      });
     });
+  };
+  componentDidMount() {
+    this.getBooks();
   }
+
   handleChangeShelf = (book, shelf) => {
     // TODO: update the state of the book selected to the state
-    console.log(book, shelf);
+    BooksAPI.update(book, shelf).then(resp => {
+      console.log(resp);
+      this.getBooks();
+    });
   };
   render() {
     return (
@@ -44,8 +56,12 @@ class BooksApp extends React.Component {
               <div>
                 {bookShelfCategories.map(category => (
                   <BookShelf
-                    category={category.shelfName}
-                    allBooks={this.state.allBooks}
+                    category={category.name}
+                    onChangeBookShelf={this.handleChangeShelf}
+                    allBooks={this.state.allBooks.filter(
+                      book => book.shelf === category.key
+                    )}
+                    shelf={category.name}
                   />
                 ))}
 
