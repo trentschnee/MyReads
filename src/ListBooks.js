@@ -12,7 +12,7 @@ class ListBooks extends Component {
             books.map((book, index) => (
               <Book
                 onChangeBookShelf={this.props.onChangeBookShelf}
-                key={index}
+                key={book.id}
                 book={book}
               />
             ))}
