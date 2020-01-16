@@ -23,16 +23,18 @@ class BooksApp extends React.Component {
   };
   componentDidMount() {
     BooksAPI.getAll().then(allBooks => {
-      console.log(allBooks);
       this.setState(() => ({ allBooks }));
     });
   }
-
+  handleChangeShelf = (book, shelf) => {
+    // TODO: update the state of the book selected to the state
+    console.log(book, shelf);
+  };
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <SearchPage />
+          <SearchPage onChangeBookShelf={this.handleChangeShelf} />
         ) : (
           <div className="list-books">
             <div className="list-books-title">

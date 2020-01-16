@@ -23,7 +23,10 @@ class SearchPage extends Component {
             <p>No results found.</p>
           </div>
         ) : (
-          <ListBooks books={this.state.queriedBooks} />
+          <ListBooks
+            onChangeBookShelf={this.props.onChangeBookShelf}
+            books={this.state.queriedBooks}
+          />
         )}
       </div>
     );
