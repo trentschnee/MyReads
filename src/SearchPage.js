@@ -13,11 +13,6 @@ class SearchPage extends Component {
         this.setState({ queriedBooks: [] });
       }
     });
-    // BooksAPI.search((query)
-    // .then(this.setState(({
-
-    // })))
-    // )
   };
   render() {
     return (
