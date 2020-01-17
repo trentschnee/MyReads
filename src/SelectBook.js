@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import * as BooksAPI from "./BooksAPI";
 class SelectBook extends Component {
   state = {
     changeValue: ""
   };
   componentDidMount() {
-    BooksAPI.get(this.props.book.id).then(book => {
-      this.setState({ changeValue: book.shelf });
-    });
+    this.setState({ changeValue: this.props.book.shelf });
   }
   handleBookShelfChange = event => {
     const { value } = event.target;

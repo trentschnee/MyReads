@@ -26,7 +26,8 @@ class SearchPage extends Component {
         ) : (
           <ListBooks
             onChangeBookShelf={this.props.onChangeBookShelf}
-            books={this.state.queriedBooks}
+            queriedBooks={this.state.queriedBooks}
+            allBooks={this.props.allBooks}
           />
         )}
       </div>
