@@ -36,16 +36,8 @@ class BooksApp extends React.Component {
   }
 
   handleChangeShelf = (book, shelf) => {
-    const currentBooks = this.state.allBooks;
-    const foundBook = currentBooks.find(index => index.id === book);
-    foundBook.shelf = shelf;
-    Array.prototype.push.apply(currentBooks, foundBook);
-    console.log(currentBooks);
-    BooksAPI.update(book, shelf).then(resp => {
-      console.log(resp);
-      this.setState({
-        allBooks: currentBooks
-      });
+    BooksAPI.update(book, shelf).then(() => {
+      this.getBooks();
     });
   };
   render() {

@@ -18,7 +18,7 @@ class Book extends Component {
             }}
           ></div>
           <SelectBook
-            bookId={this.props.book.id}
+            book={this.props.book}
             onChangeBookShelf={this.props.onChangeBookShelf}
           />
         </div>

@@ -8,8 +8,8 @@ class SelectBook extends Component {
 
   handleBookShelfChange = event => {
     const { value } = event.target;
-    const bookId = this.props.bookId;
-    this.props.onChangeBookShelf(bookId, value);
+    const book = this.props.book;
+    this.props.onChangeBookShelf(book, value);
   };
   render() {
     return (
