@@ -8,6 +8,7 @@ class SearchPage extends Component {
   };
   searchBooks = query => {
     BooksAPI.search(query).then(results => {
+      console.log(results);
       if (results) this.setState({ queriedBooks: results });
       else {
         this.setState({ queriedBooks: [] });
