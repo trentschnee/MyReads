@@ -3,7 +3,7 @@ import "./App.css";
 import BookShelf from "./BookShelf";
 import SearchPage from "./SearchPage";
 import * as BooksAPI from "./BooksAPI";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 const bookShelfCategories = [
   {
     name: "Currently Reading",
@@ -75,11 +75,11 @@ class BooksApp extends React.Component {
                   ))}
                 </div>
               </div>
-              <div className="open-search">
+              <Link to="/search" className="open-search">
                 <button onClick={() => this.setState({ showSearchPage: true })}>
                   Add a book
                 </button>
-              </div>
+              </Link>
             </div>
           )}
         />
