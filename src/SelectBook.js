@@ -5,7 +5,9 @@ class SelectBook extends Component {
     changeValue: ""
   };
   componentDidMount() {
-    this.setState({ changeValue: this.props.book.shelf });
+    return this.props.book.shelf === undefined
+      ? this.setState({ changeValue: "none" })
+      : this.setState({ changeValue: this.props.book.shelf });
   }
   handleBookShelfChange = event => {
     const { value } = event.target;
