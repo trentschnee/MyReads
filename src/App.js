@@ -1,23 +1,10 @@
 import React from "react";
 import "./App.css";
-import BookShelf from "./BookShelf";
+
 import SearchPage from "./SearchPage";
+import HomePage from "./HomePage";
 import * as BooksAPI from "./BooksAPI";
-import { Route, Link } from "react-router-dom";
-const bookShelfCategories = [
-  {
-    name: "Currently Reading",
-    key: "currentlyReading"
-  },
-  {
-    name: "Want To Read",
-    key: "wantToRead"
-  },
-  {
-    name: "Read",
-    key: "read"
-  }
-];
+import { Route } from "react-router-dom";
 
 class BooksApp extends React.Component {
   state = {
@@ -35,6 +22,7 @@ class BooksApp extends React.Component {
   }
 
   handleChangeShelf = (book, shelf) => {
+    alert("test");
     BooksAPI.update(book, shelf).then(() => {
       this.getBooks();
     });
@@ -56,28 +44,10 @@ class BooksApp extends React.Component {
           exact
           path="/"
           render={() => (
-            <div className="list-books">
-              <div className="list-books-title">
-                <h1>MyReads</h1>
-              </div>
-              <div className="list-books-content">
-                <div>
-                  {bookShelfCategories.map(category => (
-                    <BookShelf
-                      category={category.name}
-                      onChangeBookShelf={this.handleChangeShelf}
-                      allBooks={this.state.allBooks.filter(
-                        book => book.shelf === category.key
-                      )}
-                      shelf={category.name}
-                    />
-                  ))}
-                </div>
-              </div>
-              <Link to="/search" className="open-search">
-                <button>Add a book</button>
-              </Link>
-            </div>
+            <HomePage
+              onChangeBookShelf={this.handleChangeShelf}
+              allBooks={this.state.allBooks}
+            />
           )}
         />
       </div>
