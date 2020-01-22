@@ -13,12 +13,7 @@ class SearchBooksBar extends Component {
     return (
       <div className="search-books-bar">
         <Link to="/">
-          <button
-            className="close-search"
-            onClick={() => this.setState({ showSearchPage: false })}
-          >
-            Close
-          </button>
+          <button className="close-search">Close</button>
         </Link>
         <div className="search-books-input-wrapper">
           {/*

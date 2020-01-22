@@ -21,8 +21,7 @@ const bookShelfCategories = [
 
 class BooksApp extends React.Component {
   state = {
-    allBooks: [],
-    showSearchPage: false
+    allBooks: []
   };
   getBooks = () => {
     BooksAPI.getAll().then(books => {
@@ -76,9 +75,7 @@ class BooksApp extends React.Component {
                 </div>
               </div>
               <Link to="/search" className="open-search">
-                <button onClick={() => this.setState({ showSearchPage: true })}>
-                  Add a book
-                </button>
+                <button>Add a book</button>
               </Link>
             </div>
           )}
