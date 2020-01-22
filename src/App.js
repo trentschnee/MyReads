@@ -3,6 +3,7 @@ import "./App.css";
 import BookShelf from "./BookShelf";
 import SearchPage from "./SearchPage";
 import * as BooksAPI from "./BooksAPI";
+import { Route } from "react-router-dom";
 const bookShelfCategories = [
   {
     name: "Currently Reading",
@@ -42,37 +43,46 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <SearchPage
-            allBooks={this.state.allBooks}
-            onChangeBookShelf={this.handleChangeShelf}
-          />
-        ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-            <div className="list-books-content">
-              <div>
-                {bookShelfCategories.map(category => (
-                  <BookShelf
-                    category={category.name}
-                    onChangeBookShelf={this.handleChangeShelf}
-                    allBooks={this.state.allBooks.filter(
-                      book => book.shelf === category.key
-                    )}
-                    shelf={category.name}
-                  />
-                ))}
+        <Route
+          exact
+          path="/search"
+          render={() => (
+            <SearchPage
+              allBooks={this.state.allBooks}
+              onChangeBookShelf={this.handleChangeShelf}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div className="list-books">
+              <div className="list-books-title">
+                <h1>MyReads</h1>
+              </div>
+              <div className="list-books-content">
+                <div>
+                  {bookShelfCategories.map(category => (
+                    <BookShelf
+                      category={category.name}
+                      onChangeBookShelf={this.handleChangeShelf}
+                      allBooks={this.state.allBooks.filter(
+                        book => book.shelf === category.key
+                      )}
+                      shelf={category.name}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="open-search">
+                <button onClick={() => this.setState({ showSearchPage: true })}>
+                  Add a book
+                </button>
               </div>
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>
-                Add a book
-              </button>
-            </div>
-          </div>
-        )}
+          )}
+        />
       </div>
     );
   }
