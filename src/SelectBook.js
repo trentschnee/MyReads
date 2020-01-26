@@ -16,10 +16,11 @@ class SelectBook extends Component {
     this.setState({ changeValue: value });
   };
   render() {
+    const {changeValue} = this.state;
     return (
       <div className="book-shelf-changer">
         <select
-          value={this.state.changeValue}
+          value={changeValue}
           onChange={this.handleBookShelfChange}
         >
           <option value="move" disabled>

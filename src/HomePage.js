@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
 class HomePage extends Component {
   render() {
+    const {allBooks} = this.props;
     const bookShelfCategories = [
       {
         name: "Currently Reading",
@@ -28,7 +29,7 @@ class HomePage extends Component {
               <BookShelf
                 category={category.name}
                 onChangeBookShelf={this.props.onChangeBookShelf}
-                allBooks={this.props.allBooks.filter(
+                allBooks={allBooks.filter(
                   book => book.shelf === category.key
                 )}
                 shelf={category.name}

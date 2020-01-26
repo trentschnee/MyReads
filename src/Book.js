@@ -5,7 +5,7 @@ class Book extends Component {
     const { title, authors, imageLinks } = this.props.book;
     const thumbnail = imageLinks ? imageLinks.thumbnail : "";
     const authorIs = authors ? authors.join(" & ") : "";
-
+    const {book} = this.props;
     return (
       <div className="book">
         <div className="book-top">
@@ -18,7 +18,7 @@ class Book extends Component {
             }}
           ></div>
           <SelectBook
-            book={this.props.book}
+            book={book}
             onChangeBookShelf={this.props.onChangeBookShelf}
           />
         </div>

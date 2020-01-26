@@ -8,7 +8,6 @@ class SearchPage extends Component {
   };
   searchBooks = query => {
     BooksAPI.search(query).then(results => {
-      console.log(results);
       if (results) this.setState({ queriedBooks: results });
       else {
         this.setState({ queriedBooks: [] });
@@ -16,6 +15,8 @@ class SearchPage extends Component {
     });
   };
   render() {
+    const {allBooks} = this.props;
+    const {queriedBooks} = this.state;
     return (
       <div>
         <SearchBooksBar searchBooks={this.searchBooks} />
@@ -26,8 +27,8 @@ class SearchPage extends Component {
         ) : (
           <ListBooks
             onChangeBookShelf={this.props.onChangeBookShelf}
-            queriedBooks={this.state.queriedBooks}
-            allBooks={this.props.allBooks}
+            queriedBooks={queriedBooks}
+            allBooks={allBooks}
           />
         )}
       </div>
