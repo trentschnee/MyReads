@@ -6,6 +6,11 @@ class SearchPage extends Component {
   state = {
     queriedBooks: []
   };
+  /**
+   This method will search for the given query.
+   If there are results returned, it will set the queriedBooks state to the results.
+   Else, it will set the queriedBooks state to any empty array.
+   **/
   searchBooks = query => {
     BooksAPI.search(query).then(results => {
       if (results) this.setState({ queriedBooks: results });
@@ -15,12 +20,12 @@ class SearchPage extends Component {
     });
   };
   render() {
-    const {allBooks} = this.props;
-    const {queriedBooks} = this.state;
+    const { allBooks } = this.props;
+    const { queriedBooks } = this.state;
     return (
       <div>
         <SearchBooksBar searchBooks={this.searchBooks} />
-        {this.state.queriedBooks.error ? (
+        {queriedBooks.error ? (
           <div className="search-books-results">
             <p>No results found.</p>
           </div>

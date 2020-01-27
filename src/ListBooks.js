@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 
 class ListBooks extends Component {
   render() {
+    /**This variable displays an updated list of the books with their associated shelf if there is no books prop.
+     * The books prop is the default prop the BookShelf component calls.
+     * Therefore, this variable will return a different object, depending on the component it is called from.**/
     const books = this.props.books
       ? this.props.books
       : this.props.queriedBooks.map(queriedBook => {

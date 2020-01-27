@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
 class HomePage extends Component {
   render() {
-    const {allBooks} = this.props;
+    const { allBooks } = this.props;
+    // This variable holds the name of each bookshelf and then the key variable associated to that bookshelf.
     const bookShelfCategories = [
       {
         name: "Currently Reading",
@@ -29,9 +30,7 @@ class HomePage extends Component {
               <BookShelf
                 category={category.name}
                 onChangeBookShelf={this.props.onChangeBookShelf}
-                allBooks={allBooks.filter(
-                  book => book.shelf === category.key
-                )}
+                allBooks={allBooks.filter(book => book.shelf === category.key)}
                 shelf={category.name}
               />
             ))}
