@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
+import PropTypes from "prop-types";
 
 /*
 This is a stateless functional component because this components does not keep track of internal state.
@@ -45,6 +46,11 @@ const HomePage = props => {
       </Link>
     </div>
   );
+};
+
+HomePage.propTypes = {
+  allBooks: PropTypes.array.isRequired,
+  onChangeBookShelf: PropTypes.func.isRequired
 };
 
 export default HomePage;

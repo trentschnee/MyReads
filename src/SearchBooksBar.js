@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 class SearchBooksBar extends Component {
   // Create a state called query. This will be whatever we input into the search bar.
   state = {
@@ -31,4 +33,7 @@ class SearchBooksBar extends Component {
     );
   }
 }
+SearchBooksBar.propTypes = {
+  searchBooks: PropTypes.func.isRequired
+};
 export default SearchBooksBar;

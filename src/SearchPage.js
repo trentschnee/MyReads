@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ListBooks from "./ListBooks";
 import SearchBooksBar from "./SearchBooksBar";
 import * as BooksAPI from "./BooksAPI";
+import PropTypes from "prop-types";
 class SearchPage extends Component {
   state = {
     queriedBooks: []
@@ -40,4 +41,8 @@ class SearchPage extends Component {
     );
   }
 }
+SearchPage.propTypes = {
+  allBooks: PropTypes.array.isRequired,
+  onChangeBookShelf: PropTypes.func.isRequired
+};
 export default SearchPage;

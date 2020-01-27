@@ -38,7 +38,10 @@ const ListBooks = props => {
 };
 
 ListBooks.propTypes = {
-  books: PropTypes.array.isRequired
+  onChangeBookShelf: PropTypes.func.isRequired,
+  books: PropTypes.array,
+  queriedBooks: PropTypes.array,
+  allBooks: PropTypes.array
 };
 
 export default ListBooks;

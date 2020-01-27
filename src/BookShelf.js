@@ -1,6 +1,6 @@
 import React from "react";
 import ListBooks from "./ListBooks";
-
+import PropTypes from "prop-types";
 /*
 This is a stateless functional component because this components does not keep track of internal state.
 */
@@ -13,5 +13,11 @@ const BookShelf = props => {
       <ListBooks onChangeBookShelf={props.onChangeBookShelf} books={allBooks} />
     </div>
   );
+};
+
+BookShelf.propTypes = {
+  allBooks: PropTypes.array.isRequired,
+  category: PropTypes.string.isRequired,
+  onChangeBookShelf: PropTypes.func.isRequired
 };
 export default BookShelf;

@@ -1,5 +1,6 @@
 import React from "react";
 import SelectBook from "./SelectBook";
+import PropTypes from "prop-types";
 
 /*
 This is a stateless functional component because this components does not keep track of internal state.
@@ -28,5 +29,8 @@ const Book = props => {
     </div>
   );
 };
-
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  onChangeBookShelf: PropTypes.func.isRequired
+};
 export default Book;

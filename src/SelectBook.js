@@ -43,4 +43,9 @@ class SelectBook extends Component {
     );
   }
 }
+
+SelectBook.propTypes = {
+  onChangeBookShelf: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
+};
 export default SelectBook;
