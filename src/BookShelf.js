@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import ListBooks from "./ListBooks";
-class BookShelf extends Component {
-  render() {
-    const { category, allBooks } = this.props;
-    return (
-      <div className="bookshelf">
-        <h2 className="bookshelf-title">{category}</h2>
-        <ListBooks
-          onChangeBookShelf={this.props.onChangeBookShelf}
-          books={allBooks}
-        />
-      </div>
-    );
-  }
-}
+
+/*
+This is a stateless functional component because this components does not keep track of internal state.
+*/
+
+const BookShelf = props => {
+  const { category, allBooks } = props;
+  return (
+    <div className="bookshelf">
+      <h2 className="bookshelf-title">{category}</h2>
+      <ListBooks onChangeBookShelf={props.onChangeBookShelf} books={allBooks} />
+    </div>
+  );
+};
 export default BookShelf;
