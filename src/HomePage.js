@@ -33,6 +33,7 @@ const HomePage = props => {
         <div>
           {bookShelfCategories.map(category => (
             <BookShelf
+              key={category.key}
               category={category.name}
               onChangeBookShelf={props.onChangeBookShelf}
               allBooks={allBooks.filter(book => book.shelf === category.key)}
