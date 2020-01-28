@@ -10,7 +10,6 @@ Clone the GitHub repository to your directory of choice. Then install all depend
 $ git clone https://github.com/trentschnee/reactnd-project-myreads-starter.git
 $ cd reactnd-project-myreads-starter
 $ npm install
-$ npm start
 ```
 
 ## Running
